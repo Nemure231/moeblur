@@ -4,7 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Ini adalah contoh meta descriptions. Akan sering muncul di hasil pencarian.">
+    <meta name="keywords" content="moe, anime, radial blur, anime ss, anime screenshot">
+    <meta name="author" content="Karol.Y">
+
+    <title>Moeblur:: Giving funny radial blur effect to anime screenshot</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" href="./assets/img/logo/logo.png"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
         integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer"/>
@@ -259,7 +265,6 @@
                                 @click="document.getElementById('new-image').style.backgroundImage = 'url('+value.url+')';
                                 $refs.hidden_new_image.value = value.url;
                                 $refs.upload_image.style.backgroundSize = 'cover';">
-
                             </div>
                         </template>
                     </div>

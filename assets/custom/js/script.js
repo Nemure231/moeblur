@@ -42,19 +42,19 @@ document.addEventListener('alpine:init', () => {
         bg: {
             1: {
                 id: 1,
-                url: './assets/img/example_1.jpg'
+                url: './assets/img/example/example_1.jpg'
             },
             2: {
                 id: 2,
-                url: './assets/img/example_2.jpg'
+                url: './assets/img/example/example_2.jpg'
             },
             3: {
                 id: 3,
-                url: './assets/img/example_3.jpg'
+                url: './assets/img/example/example_3.jpg'
             },
             4: {
                 id: 4,
-                url: './assets/img/example_4.jpg'
+                url: './assets/img/example/example_4.jpg'
             }
         }
 
