@@ -1,0 +1,299 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+        integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link rel="stylesheet" href="./assets/custom/css/style.css">
+</head>
+
+<body class="bg-gray font-sans antialiased bg-gray-200">
+
+    <div class="lg:hidden block my-16 h-full w-full flex container">
+        <div
+            class="p-3 bg-white mx-16 font-bold text-lg text-red-800 border border-red-800 rounded-xl text-center h-full w-full items-center">
+            Sorry, but this site currently only available with laptop/pc browser!
+        </div>
+    </div>
+
+    <main class="lg:block hidden text-black w-full h-full container mx-auto my-8">
+        <div class="text-white -mb-6 w-full h-20 bg-red-800 rounded-xl flex justify-between">
+            <div class="rounded-xl p-3 bg-red-900">
+                <a href="http://">
+                    <i class="fab fa-2x fa-github"></i>
+                </a>
+            </div>
+            <div class="p-3 text-center font-bold text-2xl">
+                Funny Radial Blur Anime SS
+            </div>
+            <div class="rounded-xl p-3 bg-red-900" x-data="{faq: false}">
+                <button @click="faq =! faq">
+                    <i class="fas fa-2x fa-question-circle"></i>
+                </button>
+                <div x-show="faq" x-transition:enter="transition ease-out duration-300"
+                    x-transition:enter-start="transform  opacity-0 scale-0"
+                    x-transition:enter-end="transform opacity-100 scale-100"
+                    x-transition:leave="transition ease-in duration-200"
+                    x-transition:leave-start="transform opacity-100 scale-100"
+                    x-transition:leave-end="transform opacity-0 scale-0" @click.away="faq= false"
+                    class="absolute right-14 bg-white h-auto w-80 border border-gray-400 rounded-xl origin-top-right">
+
+
+                    <div class="text-black grid grid-cols-1 divide-y divide-red-800 divide-dashed">
+                        <div class="w-full" x-data="{collapse_faq: false}">
+                            <div @click="collapse_faq =! collapse_faq" @click.away="collapse_faq = false"
+                                class="text-sm cursor-pointer p-3 flex items-center justify-between hover:bg-red-100 rounded-t-xl">
+                                <div>What is this site?</div>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div x-show="collapse_faq" class="text-xs p-3 bg-gray-100 w-full h-auto rounded-b-xl"
+                                x-collapse.duration.200ms>
+                                An funny radial blur image converter for anime screenshot only.
+                            </div>
+                        </div>
+                        <div class="w-full" x-data="{collapse_faq: false}">
+                            <div @click="collapse_faq =! collapse_faq" @click.away="collapse_faq = false"
+                                class="text-sm cursor-pointer p-3 flex items-center justify-between hover:bg-red-100">
+                                <div>Is this really for anime screenshot only?</div>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div x-show="collapse_faq" class="text-xs p-3 bg-gray-100 w-full h-auto rounded-b-xl"
+                                x-collapse.duration.200ms>
+                                Actually not lol, bit it just work well for landscape picture.
+                                If you try with portrait picture the coordinate position might be miss so far,
+                                and i still don't know yet how to fix it.
+                            </div>
+                        </div>
+                        <div class="w-full" x-data="{collapse_faq: false}">
+                            <div @click="collapse_faq =! collapse_faq" @click.away="collapse_faq = false"
+                                class="text-sm cursor-pointer p-3 flex items-center justify-between hover:bg-red-100">
+                                <div>Why my image pixels size got reducted?</div>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div x-show="collapse_faq" class="text-xs p-3 bg-gray-100 w-full h-auto rounded-b-xl"
+                                x-collapse.duration.200ms>
+                                Maybe too big to fit in this site, so i reduce the size.
+                            </div>
+                        </div>
+                        <div class="w-full" x-data="{collapse_faq: false}">
+                            <div @click="collapse_faq =! collapse_faq" @click.away="collapse_faq = false"
+                                class="text-sm cursor-pointer p-3 flex items-center justify-between hover:bg-red-100">
+                                <div>Why when i trying to edit for the second time, the preview show nothing?</div>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div x-show="collapse_faq" class="text-xs p-3 bg-gray-100 w-full h-auto rounded-b-xl"
+                                x-collapse.duration.200ms>
+                                Yeah me too, possibility a bug and i don't know yet how to fix that. But when you
+                                clicked at that blank
+                                preview the second image will appeared right?
+                            </div>
+                        </div>
+
+                        <div class="w-full" x-data="{collapse_faq: false}">
+                            <div @click="collapse_faq =! collapse_faq" @click.away="collapse_faq = false"
+                                class="text-sm cursor-pointer p-3 flex items-center justify-between hover:bg-red-100">
+                                <div>Are my data safe in this site?</div>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div x-show="collapse_faq" class="text-xs p-3 bg-gray-100 w-full h-auto rounded-b-xl"
+                                x-collapse.duration.200ms>
+                                Yes, everything safe, because its just show as client-side only,
+                                which mean only on your browser. When you refresh the site, all of the data a.k.a image
+                                are gone. Also, i don't have/rent a server just to store you ugly image (sorry).
+                            </div>
+                        </div>
+                        <div class="w-full" x-data="{collapse_faq: false}">
+                            <div @click="collapse_faq =! collapse_faq" @click.away="collapse_faq = false"
+                                class="text-sm cursor-pointer p-3 flex items-center justify-between hover:bg-red-100">
+                                <div>How does this work?</div>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div x-show="collapse_faq" class="text-xs p-3 bg-gray-100 w-full h-auto rounded-b-xl"
+                                x-collapse.duration.200ms>
+                                For the effect i use PixiJS Filter Zoom Blur, other than that just basic javascript code
+                                using AlpineJS,
+                                you can search that on goggle. I still don't know yet what is the best practice for
+                                PixiJS bit its just worked lol.
+                            </div>
+                        </div>
+
+                        <div class="w-full" x-data="{collapse_faq: false}">
+                            <div @click="collapse_faq =! collapse_faq" @click.away="collapse_faq = false"
+                                class="text-sm cursor-pointer p-3 flex items-center justify-between hover:bg-red-100">
+                                <div>Why everytime i clicked the picture, its become more lag?</div>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div x-show="collapse_faq" class="text-xs p-3 bg-gray-100 w-full h-auto rounded-b-xl"
+                                x-collapse.duration.200ms>
+                                When you clicked, the old image will be replaced with new one with effect, its not
+                                giving the effect to the old image.
+                                I think that part is the problem, agan i still don't knnow yet how to render the old
+                                image.
+                            </div>
+                        </div>
+                        <div class="w-full" x-data="{collapse_faq: false}">
+                            <div @click="collapse_faq =! collapse_faq" @click.away="collapse_faq = false"
+                                class="text-sm cursor-pointer p-3 flex items-center justify-between hover:bg-red-100 rounded-b-xl">
+                                <div>Are you open for contribution?</div>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div x-show="collapse_faq" class="text-xs p-3 bg-gray-100 w-full h-auto rounded-b-xl"
+                                x-collapse.duration.200ms>
+                                Hmmm ... i am kinda not yet familiar with github contribution case, but maybe yes, and
+                                maybe very
+                                slow respond because i am still learning it, the git and github.
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="flex lg:flex-row md:flex-row flex-col">
+
+            <div class="p-3 lg:w-1/4 md:w-1/3 w-full h-auto bg-white rounded-l-xl overflow-hidden"
+                x-data="upload_image">
+                <div x-ref="upload_image" class="border-dashed border-2 border-red-600 w-full h-36 bg-white rounded-lg">
+                    <div id="new-image" x-ref="new_image"
+                        class="flex h-full items-center justify-center bg-cover bg-center rounded-lg">
+                        <input type="file" x-ref="choose_image" type="file" name="" @change="change_image()"
+                            style="display: none;">
+                        <input x-ref="hidden_new_image" type="hidden" id="hidden-new-image">
+                        <button
+                            class="bg-white text-red-500 text-sm font-light border-2 border-red-500 py-1 px-2 rounded-lg"
+                            @click="choose_image()">
+                            Choose Image
+
+                        </button>
+                    </div>
+                </div>
+                <button @click="start_edit()"
+                    class="mt-3 block w-full bg-white border-2 border-red-500 py-1 px-3 text-center rounded-xl font-semibold text-red-600">
+                    Start Edit
+                </button>
+
+                <div class="mt-3" x-data="range()">
+
+                    <div class="flex justify-between">
+                        <div>Strength Focus</div>
+                        <input type="text" maxlength="5" disabled x-model="maxprice"
+                            class="px-2 py-1 border border-gray-200 rounded w-16 text-center">
+
+                    </div>
+                    <div x-init="maxtrigger()" class="mt-2 relative max-w-xl w-full">
+                        <div>
+
+                            <input type="range" step="0.01" x-bind:min="min" x-bind:max="max" x-on:input="maxtrigger"
+                                x-model="maxprice"
+                                class="absolute pointer-events-none appearance-none z-20 h-2 w-full opacity-0 cursor-pointer">
+
+                            <div class="relative z-10 h-2">
+
+                                <div class="absolute z-10 left-0 right-0 bottom-0 top-0 rounded-md bg-gray-200"></div>
+
+                                <div class="absolute z-20 top-0 bottom-0 rounded-md bg-red-600"
+                                    x-bind:style="'right:'+maxthumb+'%; left:'+minthumb+'%'"></div>
+
+
+                                <div class="absolute z-30 w-6 h-6 top-0 right-0 bg-red-600 rounded-full -mt-2 -mr-3"
+                                    x-bind:style="'right: '+maxthumb+'%'"></div>
+
+                            </div>
+
+                        </div>
+
+
+
+                    </div>
+
+
+                </div>
+
+
+
+                <div class="mt-2" x-data="circle()">
+                    <div class="flex justify-between">
+                        <div>Circle</div>
+                        <input type="text" maxlength="5" disabled x-model="maxprice"
+                            class="px-2 py-1 border border-gray-200 rounded w-16 text-center">
+
+                    </div>
+                    <div x-init="maxtrigger()" class="mt-2 relative max-w-xl w-full">
+                        <div>
+
+                            <input type="range" step="1" x-bind:min="min" x-bind:max="max" x-on:input="maxtrigger"
+                                x-model="maxprice"
+                                class="absolute pointer-events-none appearance-none z-20 h-2 w-full opacity-0 cursor-pointer">
+
+                            <div class="relative z-10 h-2">
+
+                                <div class="absolute z-10 left-0 right-0 bottom-0 top-0 rounded-md bg-gray-200"></div>
+
+                                <div class="absolute z-20 top-0 bottom-0 rounded-md bg-red-600"
+                                    x-bind:style="'right:'+maxthumb+'%; left:'+minthumb+'%'"></div>
+
+
+                                <div class="absolute z-30 w-6 h-6 top-0 right-0 bg-red-600 rounded-full -mt-2 -mr-3"
+                                    x-bind:style="'right: '+maxthumb+'%'"></div>
+
+                            </div>
+
+                        </div>
+
+
+                    </div>
+                </div>
+
+                <div class="p-3 mt-3">
+                    <div class="text-center font-semibold">Try Example</div>
+                    <div class="flex flex-row flex-wrap w-full space-x-3 space-y-3" x-data="contoh">
+                        <template x-for="[id, value] in Object.entries(bg)" :key="id">
+                            <div class="cursor-pointer basis-2/5 bg-cover bg-center border-dashed border-2 border-red-600 h-16 rounded-lg"
+                                :style="{ backgroundImage: 'url(' + value.url + ')' }"
+                                @click="document.getElementById('new-image').style.backgroundImage = 'url('+value.url+')';
+                                $refs.hidden_new_image.value = value.url;
+                                $refs.upload_image.style.backgroundSize = 'cover';">
+
+                            </div>
+                        </template>
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="p-3 lg:w-3/4 md:w-2/3 w-full h-auto bg-white rounded-r-xl overflow-hidden" id="ukuran"
+                x-data="canvas">
+                <div id="show-canvas" class="w-full h-full overflow-auto ">
+                    <canvas id="myCanvas" x-ref="myCanvas" @click="klik"
+                        class="cursor-pointer flex items-center h-full w-full">
+
+                    </canvas>
+                    <div class="cursor" x-ref="cursor"></div>
+
+                  
+                </div>
+            </div>
+
+    </main>
+    </div>
+
+
+
+</body>
+
+<script defer src="https://unpkg.com/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
+<script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/5.1.3/pixi.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/pixi-filters@latest/dist/pixi-filters.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/pixi-center@1.0.11/lib/pixi-center.min.js"></script>
+
+
+<script src="./assets/custom/js/script.js"></script>
+
+</html>

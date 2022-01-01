@@ -1,0 +1,22 @@
+.cursor {
+    position: fixed;
+    border-radius: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    pointer-events: none;
+    left: -100px;
+    top: 50%;
+    mix-blend-mode: difference;
+    background-color: transparent;
+    z-index: 10000;
+    border: 2px solid rgb(102, 95, 95);
+    height: 50px;
+    width: 50px;
+    transition: all 300ms ease-out;
+}
+
+input[type=range]::-webkit-slider-thumb {
+    pointer-events: all;
+    width: 24px;
+    height: 24px;
+    -webkit-appearance: none;
+}
