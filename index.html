@@ -4,16 +4,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Ini adalah contoh meta descriptions. Akan sering muncul di hasil pencarian.">
+    <meta name="description" content="Giving funny radial blur effect to anime screenshot">
     <meta name="keywords" content="moe, anime, radial blur, anime ss, anime screenshot">
     <meta name="author" content="Karol.Y">
 
+    <meta property="og:description" content="Giving funny radial blur effect to anime screenshot" />
+    <meta property="og:url" content="https://nemure231.github.io/moeblur/index.html" />
+    <meta property="og:site_name" content="Moeblur" />
+    <meta property="og:image" content="./assets/img/logo/logo.png" />
+
+    <!--meta twitter-->
+    <meta name="twitter:card" content="summary" />
+    <meta property="twitter:image" content="./assets/img/logo/logo.png" />
+    <meta property="twitter:title" content="Moeblur" />
+    <meta property="twitter:description" content="Giving funny radial blur effect to anime screenshot" />
+    <!-- end meta twitter-->
+
     <title>Moeblur:: Giving funny radial blur effect to anime screenshot</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="icon" href="./assets/img/logo/logo.png"/>
+    <link rel="icon" href="./assets/img/logo/logo.png" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
         integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"/>
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="./assets/custom/css/style.css">
 </head>
 
@@ -261,8 +273,7 @@
                     <div class="flex flex-row flex-wrap w-full space-x-3 space-y-3" x-data="contoh">
                         <template x-for="[id, value] in Object.entries(bg)" :key="id">
                             <div class="cursor-pointer basis-2/5 bg-cover bg-center border-dashed border-2 border-red-600 h-16 rounded-lg"
-                                :style="{ backgroundImage: 'url(' + value.url + ')' }"
-                                @click="document.getElementById('new-image').style.backgroundImage = 'url('+value.url+')';
+                                :style="{ backgroundImage: 'url(' + value.url + ')' }" @click="document.getElementById('new-image').style.backgroundImage = 'url('+value.url+')';
                                 $refs.hidden_new_image.value = value.url;
                                 $refs.upload_image.style.backgroundSize = 'cover';">
                             </div>
@@ -281,7 +292,7 @@
                     </canvas>
                     <div class="cursor" x-ref="cursor"></div>
 
-                  
+
                 </div>
             </div>
 
