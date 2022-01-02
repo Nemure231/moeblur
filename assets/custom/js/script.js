@@ -115,7 +115,10 @@ document.addEventListener('alpine:init', () => {
 
             });
 
-            var file = document.getElementById('hidden-new-image').value;
+            var file = this.$refs.hidden_new_image.value;
+
+            // PUT THE VALUE OF NEW IMAGE IN THE EDIT VALUE
+            this.$refs.hidden_new_image_edit.value = file;
             
             var image = new Image();
             image.onload = function () {
@@ -159,7 +162,8 @@ document.addEventListener('alpine:init', () => {
     Alpine.data('canvas', () => ({
         radial_blur(event) {
 
-            var file = document.getElementById('hidden-new-image').value;
+            // GET THE EDIT VALUE
+            var file = document.getElementById('hidden-new-image-edit').value;
 
             if (!file) {
                 alert('Choose image first and then start edit.')
@@ -183,7 +187,6 @@ document.addEventListener('alpine:init', () => {
                 transparent: true
 
             });
-            var file = document.getElementById('hidden-new-image').value;
 
             var image = new Image();
             image.onload = function () {
