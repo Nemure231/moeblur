@@ -104,6 +104,18 @@
                         <div class="w-full" x-data="{collapse_faq: false}">
                             <div @click="collapse_faq =! collapse_faq" @click.away="collapse_faq = false"
                                 class="text-sm cursor-pointer p-3 flex items-center justify-between hover:bg-red-100">
+                                <div>Why when i resized my browser, the coordinates of radial blur miss so far?</div>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div x-show="collapse_faq" class="text-xs p-3 bg-gray-100 w-full h-auto rounded-b-xl"
+                                x-collapse.duration.200ms>
+                                I just giving a fixed coordinates of radial blur for full size browser, i don't know how to get 
+                                the absolute right coordinates when you resize your browser.
+                            </div>
+                        </div>
+                        <div class="w-full" x-data="{collapse_faq: false}">
+                            <div @click="collapse_faq =! collapse_faq" @click.away="collapse_faq = false"
+                                class="text-sm cursor-pointer p-3 flex items-center justify-between hover:bg-red-100">
                                 <div>Why when i trying to edit for the second time, the preview show nothing?</div>
                                 <i class="fas fa-chevron-down"></i>
                             </div>

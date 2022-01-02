@@ -261,6 +261,11 @@ ready(function () {
             cursor.style.top = e.clientY + "px";
     });
 
+    // GIVE ALERT ONCE WHWN BROWSER GET RESIZED
+    window.addEventListener('resize', function(event) {
+        alert(`Don't resize your browser if you don't want your image get weird croped, stay on full screen size browser`);
+    }, { once: true });
+
 
 });
 
