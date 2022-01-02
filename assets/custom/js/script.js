@@ -71,26 +71,26 @@ function isFileImage(file) {
 
 document.addEventListener('alpine:init', () => {
     Alpine.data('upload_image', () => ({
-        choose_image(){
+        choose_image() {
             this.$refs.choose_image.click();
         },
         // CHOOSE IMAGE AND CONVERT IN INTU URL, AND SHOW IT AS A PREVIEW
         change_image() {
             var files = this.$refs.choose_image['files'][0];
             const fileType = files['type'];
-            const fileSize =  files['size'];
+            const fileSize = files['size'];
             const validImageTypes = ['image/gif', 'image/jpeg', 'image/png'];
-             // TYPE IMAGE VALIDATION
+            // TYPE IMAGE VALIDATION
             if (!validImageTypes.includes(fileType)) {
                 alert('Please, choose the right format image! The avaiable format is JPG, JPEG, and PNG!');
             }
             //SIZE IMAGE VALIDATION
             else if (fileSize >= 1045301) {
                 alert('The maximum size image to upload is 1MB, please reduce your image size before upload again!');
-            }else{
+            } else {
                 //CHANGE THE IMAGE WITH CURRENT FILE UPLOAD
                 var src = window.URL.createObjectURL(files);
-                this.$refs.new_image.style.backgroundImage = 'url('+src+')';
+                this.$refs.new_image.style.backgroundImage = 'url(' + src + ')';
                 this.$refs.hidden_new_image.value = src;
 
             }
@@ -98,7 +98,7 @@ document.addEventListener('alpine:init', () => {
         },
         start_edit() {
 
-            if(!document.getElementById('hidden-new-image').value){
+            if (!document.getElementById('hidden-new-image').value) {
                 alert('You need to choose one image or example before edit!')
             }
 
@@ -119,11 +119,11 @@ document.addEventListener('alpine:init', () => {
 
             // PUT THE VALUE OF NEW IMAGE IN THE EDIT VALUE
             this.$refs.hidden_new_image_edit.value = file;
-            
+
             var image = new Image();
             image.onload = function () {
 
-               
+
                 const rect = PIXI.Texture.from(image.src);
                 var sprites = {};
                 sprites = new PIXI.Sprite(rect);
@@ -136,9 +136,9 @@ document.addEventListener('alpine:init', () => {
                     sprites.height = 768 / 1.5;
 
                     // GIVE CENTER POSITION OF LANDSCAPE IMAGE
-                    sprites.x = sprites.width / sprites.width + 12;
+                    // sprites.x = sprites.width / sprites.width + 12;
 
-                   
+
                 } else {
                     sprites.width = image.width;
                     sprites.height = image.height;
@@ -167,73 +167,80 @@ document.addEventListener('alpine:init', () => {
 
             if (!file) {
                 alert('Choose image first and then start edit.')
-            }else{
+            } else {
 
-            // GET CURRENT COORDINATE OF CANVAS POSITION
-            var x = event.clientX;
-            var y = event.clientY;
+                // GET CURRENT COORDINATE OF CANVAS POSITION
+                var x = event.clientX;
+                var y = event.clientY;
 
-            const canvas = this.$refs.myCanvas;
-            const widthCanvas = canvas.clientWidth;
-            const heightCanvas = canvas.clientHeight;
-            // THE BASIC SETTING FOR CANVAS IMAGE
-            // THE WIDTH AND HEIGHT IS ACCOURDING TO SIZE OF CANVAS TAG IN INDEX.HTML
-            const app = new PIXI.Application({
-                view: canvas,
-                autoResize: true,
-                width: widthCanvas,
-                height: heightCanvas,
-                resolution: 1,
-                transparent: true
+                const canvas = this.$refs.myCanvas;
+                const widthCanvas = canvas.clientWidth;
+                const heightCanvas = canvas.clientHeight;
+                // THE BASIC SETTING FOR CANVAS IMAGE
+                // THE WIDTH AND HEIGHT IS ACCOURDING TO SIZE OF CANVAS TAG IN INDEX.HTML
+                const app = new PIXI.Application({
+                    view: canvas,
+                    autoResize: true,
+                    width: widthCanvas,
+                    height: heightCanvas,
+                    resolution: 1,
+                    transparent: true
 
-            });
+                });
 
-            var image = new Image();
-            image.onload = function () {
-                const texture = PIXI.Texture.from(image.src);
+                var image = new Image();
+                image.onload = function () {
+                    const texture = PIXI.Texture.from(image.src);
 
-                var sprites = {};
-                sprites = new PIXI.Sprite(texture);
-                
-                if (image.width > widthCanvas && image.height > heightCanvas) {
-                    // RESIZE THE IMAGE SO IT CAN FIT TO THE WEBSITE
-                    // ITS JUST RANDOM SIZE THAT I COHHOSE
-                    // STILL DONT KNOW HOW TO MAKE THE CANVAS IMAGE GET THE RESPONSIVE DESIGN, FIX LATTER
-                    sprites.width = 1366 / 1.5;
-                    sprites.height = 768 / 1.5;
-                    // GIVE CENTER POSITION OF LANDSCAPE IMAGE
-                    sprites.x = sprites.width / sprites.width + 12;
+                    var sprites = {};
+                    sprites = new PIXI.Sprite(texture);
 
-                    // EDIT THE COORDINATE, THE REAL COORDINATE KINDA MISS SO I CHANGE HERE A BIT.
-                    //I STILL DONT KNOW WHAT IS THE ABSOLUTE COORDINATE
-                    //HOPE THIS CAN FIX SOON IN THE FUTURE
-                    x = x - 388;
-                    y = y - 95;
+                    if (image.width > widthCanvas && image.height > heightCanvas) {
+                        // RESIZE THE IMAGE SO IT CAN FIT TO THE WEBSITE
+                        // ITS JUST RANDOM SIZE THAT I COHHOSE
+                        // STILL DONT KNOW HOW TO MAKE THE CANVAS IMAGE GET THE RESPONSIVE DESIGN, FIX LATTER
+                        sprites.width = 1366 / 1.5;
+                        sprites.height = 768 / 1.5;
+                        // GIVE CENTER POSITION OF LANDSCAPE IMAGE
+                        // sprites.x = sprites.width / sprites.width + 12;
 
-                } else {
-                    sprites.width = image.width;
-                    sprites.height = image.height;
-                   
-                    // EDIT THE COORDINATE, THE REAL COORDINATE KINDA MISS SO I CHANGE HERE A BIT.
-                    //I STILL DONT KNOW WHAT IS THE ABSOLUTE COORDINATE
-                    //HOPE THIS CAN FIX SOON IN THE FUTURE
-                    x = x - 375;
-                    y = y - 95;
-                }
+                        // EDIT THE COORDINATE, THE REAL COORDINATE KINDA MISS SO I CHANGE HERE A BIT.
+                        //I STILL DONT KNOW WHAT IS THE ABSOLUTE COORDINATE
+                        //HOPE THIS CAN FIX SOON IN THE FUTURE
+                        const width = Math.max(document.clientWidth || 0, window.innerWidth || 0);
+                        if (width > 1366) {
+                            x = x - 450;
+                            y = y - 95;
+                        }else{
+                            x = x - 375;
+                            y = y - 100;
+                        }
 
-                // GIVE IMAGE THE RADIAL BLUR EFFECT
-                sprites.filters = [new PIXI.filters.ZoomBlurFilter({
-                    strength: localStorage.getItem('strength'),
-                    center: [x, y],
-                    innerRadius: localStorage.getItem('circle'),
-                    maxKernelSize: 32,
-                })];
-                app.stage.addChild(sprites);
-                document.getElementById('show-canvas').appendChild(app.view);
 
-            };
-            image.src = file;
-        }
+                    } else {
+                        sprites.width = image.width;
+                        sprites.height = image.height;
+
+                        // EDIT THE COORDINATE, THE REAL COORDINATE KINDA MISS SO I CHANGE HERE A BIT.
+                        //I STILL DONT KNOW WHAT IS THE ABSOLUTE COORDINATE
+                        //HOPE THIS CAN FIX SOON IN THE FUTURE
+                        x = x - 375;
+                        y = y - 95;
+                    }
+
+                    // GIVE IMAGE THE RADIAL BLUR EFFECT
+                    sprites.filters = [new PIXI.filters.ZoomBlurFilter({
+                        strength: localStorage.getItem('strength'),
+                        center: [x, y],
+                        innerRadius: localStorage.getItem('circle'),
+                        maxKernelSize: 32,
+                    })];
+                    app.stage.addChild(sprites);
+                    document.getElementById('show-canvas').appendChild(app.view);
+
+                };
+                image.src = file;
+            }
 
 
 
@@ -262,7 +269,7 @@ ready(function () {
     });
 
     // GIVE ALERT ONCE WHWN BROWSER GET RESIZED
-    window.addEventListener('resize', function(event) {
+    window.addEventListener('resize', function (event) {
         alert(`Don't resize your browser if you don't want your image get weird croped, stay on full screen size browser`);
     }, { once: true });
 
