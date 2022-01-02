@@ -66,60 +66,60 @@
 
 
                     <div class="text-black grid grid-cols-1 divide-y divide-red-800 divide-dashed">
-                        <div class="w-full" x-data="{collapse_faq: false}">
-                            <div @click="collapse_faq =! collapse_faq" @click.away="collapse_faq = false"
+                        <div class="w-full" x-data="{collapse_qa: false}">
+                            <div @click="collapse_qa =! collapse_qa" @click.away="collapse_qa = false"
                                 class="text-sm cursor-pointer p-3 flex items-center justify-between hover:bg-red-100 rounded-t-xl">
                                 <div>What is this site?</div>
                                 <i class="fas fa-chevron-down"></i>
                             </div>
-                            <div x-show="collapse_faq" class="text-xs p-3 bg-gray-100 w-full h-auto rounded-b-xl"
+                            <div x-show="collapse_qa" class="text-xs p-3 bg-gray-100 w-full h-auto rounded-b-xl"
                                 x-collapse.duration.200ms>
                                 An funny radial blur image converter for anime screenshot only.
                             </div>
                         </div>
-                        <div class="w-full" x-data="{collapse_faq: false}">
-                            <div @click="collapse_faq =! collapse_faq" @click.away="collapse_faq = false"
+                        <div class="w-full" x-data="{collapse_qa: false}">
+                            <div @click="collapse_qa =! collapse_qa" @click.away="collapse_qa = false"
                                 class="text-sm cursor-pointer p-3 flex items-center justify-between hover:bg-red-100">
                                 <div>Is this really for anime screenshot only?</div>
                                 <i class="fas fa-chevron-down"></i>
                             </div>
-                            <div x-show="collapse_faq" class="text-xs p-3 bg-gray-100 w-full h-auto rounded-b-xl"
+                            <div x-show="collapse_qa" class="text-xs p-3 bg-gray-100 w-full h-auto rounded-b-xl"
                                 x-collapse.duration.200ms>
                                 Actually not lol, but it just work well for landscape picture.
                                 If you try with portrait picture the coordinate position might be miss so far,
                                 and i still don't know yet how to fix it.
                             </div>
                         </div>
-                        <div class="w-full" x-data="{collapse_faq: false}">
-                            <div @click="collapse_faq =! collapse_faq" @click.away="collapse_faq = false"
+                        <div class="w-full" x-data="{collapse_qa: false}">
+                            <div @click="collapse_qa =! collapse_qa" @click.away="collapse_qa = false"
                                 class="text-sm cursor-pointer p-3 flex items-center justify-between hover:bg-red-100">
                                 <div>Why my image pixels size got reducted?</div>
                                 <i class="fas fa-chevron-down"></i>
                             </div>
-                            <div x-show="collapse_faq" class="text-xs p-3 bg-gray-100 w-full h-auto rounded-b-xl"
+                            <div x-show="collapse_qa" class="text-xs p-3 bg-gray-100 w-full h-auto rounded-b-xl"
                                 x-collapse.duration.200ms>
                                 Maybe too big to fit in this site, so i reduce the size.
                             </div>
                         </div>
-                        <div class="w-full" x-data="{collapse_faq: false}">
-                            <div @click="collapse_faq =! collapse_faq" @click.away="collapse_faq = false"
+                        <div class="w-full" x-data="{collapse_qa: false}">
+                            <div @click="collapse_qa =! collapse_qa" @click.away="collapse_qa = false"
                                 class="text-sm cursor-pointer p-3 flex items-center justify-between hover:bg-red-100">
                                 <div>Why when i resized my browser, the coordinates of radial blur miss so far?</div>
                                 <i class="fas fa-chevron-down"></i>
                             </div>
-                            <div x-show="collapse_faq" class="text-xs p-3 bg-gray-100 w-full h-auto rounded-b-xl"
+                            <div x-show="collapse_qa" class="text-xs p-3 bg-gray-100 w-full h-auto rounded-b-xl"
                                 x-collapse.duration.200ms>
                                 I just giving a fixed coordinates of radial blur for full size browser, i don't know how to get 
                                 the absolute right coordinates when you resize your browser.
                             </div>
                         </div>
-                        <div class="w-full" x-data="{collapse_faq: false}">
-                            <div @click="collapse_faq =! collapse_faq" @click.away="collapse_faq = false"
+                        <div class="w-full" x-data="{collapse_qa: false}">
+                            <div @click="collapse_qa =! collapse_qa" @click.away="collapse_qa = false"
                                 class="text-sm cursor-pointer p-3 flex items-center justify-between hover:bg-red-100">
                                 <div>Why when i trying to edit for the second time, the preview show nothing?</div>
                                 <i class="fas fa-chevron-down"></i>
                             </div>
-                            <div x-show="collapse_faq" class="text-xs p-3 bg-gray-100 w-full h-auto rounded-b-xl"
+                            <div x-show="collapse_qa" class="text-xs p-3 bg-gray-100 w-full h-auto rounded-b-xl"
                                 x-collapse.duration.200ms>
                                 Yeah me too, possibility a bug and i don't know yet how to fix that. But when you
                                 clicked at that blank
@@ -127,26 +127,26 @@
                             </div>
                         </div>
 
-                        <div class="w-full" x-data="{collapse_faq: false}">
-                            <div @click="collapse_faq =! collapse_faq" @click.away="collapse_faq = false"
+                        <div class="w-full" x-data="{collapse_qa: false}">
+                            <div @click="collapse_qa =! collapse_qa" @click.away="collapse_qa = false"
                                 class="text-sm cursor-pointer p-3 flex items-center justify-between hover:bg-red-100">
                                 <div>Are my data safe in this site?</div>
                                 <i class="fas fa-chevron-down"></i>
                             </div>
-                            <div x-show="collapse_faq" class="text-xs p-3 bg-gray-100 w-full h-auto rounded-b-xl"
+                            <div x-show="collapse_qa" class="text-xs p-3 bg-gray-100 w-full h-auto rounded-b-xl"
                                 x-collapse.duration.200ms>
                                 Yes, everything safe, because its just show as client-side only,
                                 which mean only on your browser. When you refresh the site, all of the data a.k.a image
                                 are gone. Also, i don't have/rent a server just to store you ugly image (sorry).
                             </div>
                         </div>
-                        <div class="w-full" x-data="{collapse_faq: false}">
-                            <div @click="collapse_faq =! collapse_faq" @click.away="collapse_faq = false"
+                        <div class="w-full" x-data="{collapse_qa: false}">
+                            <div @click="collapse_qa =! collapse_qa" @click.away="collapse_qa = false"
                                 class="text-sm cursor-pointer p-3 flex items-center justify-between hover:bg-red-100">
                                 <div>How does this work?</div>
                                 <i class="fas fa-chevron-down"></i>
                             </div>
-                            <div x-show="collapse_faq" class="text-xs p-3 bg-gray-100 w-full h-auto rounded-b-xl"
+                            <div x-show="collapse_qa" class="text-xs p-3 bg-gray-100 w-full h-auto rounded-b-xl"
                                 x-collapse.duration.200ms>
                                 For the effect i use PixiJS Filter Zoom Blur, other than that just basic javascript code
                                 using AlpineJS,
@@ -155,13 +155,13 @@
                             </div>
                         </div>
 
-                        <div class="w-full" x-data="{collapse_faq: false}">
-                            <div @click="collapse_faq =! collapse_faq" @click.away="collapse_faq = false"
+                        <div class="w-full" x-data="{collapse_qa: false}">
+                            <div @click="collapse_qa =! collapse_qa" @click.away="collapse_qa = false"
                                 class="text-sm cursor-pointer p-3 flex items-center justify-between hover:bg-red-100">
                                 <div>Why everytime i clicked the picture, its become more lag?</div>
                                 <i class="fas fa-chevron-down"></i>
                             </div>
-                            <div x-show="collapse_faq" class="text-xs p-3 bg-gray-100 w-full h-auto rounded-b-xl"
+                            <div x-show="collapse_qa" class="text-xs p-3 bg-gray-100 w-full h-auto rounded-b-xl"
                                 x-collapse.duration.200ms>
                                 When you clicked, the old image will be replaced with new one with effect, its not
                                 giving the effect to the old image.
@@ -169,13 +169,13 @@
                                 image.
                             </div>
                         </div>
-                        <div class="w-full" x-data="{collapse_faq: false}">
-                            <div @click="collapse_faq =! collapse_faq" @click.away="collapse_faq = false"
+                        <div class="w-full" x-data="{collapse_qa: false}">
+                            <div @click="collapse_qa =! collapse_qa" @click.away="collapse_qa = false"
                                 class="text-sm cursor-pointer p-3 flex items-center justify-between hover:bg-red-100 rounded-b-xl">
                                 <div>Are you open for contribution?</div>
                                 <i class="fas fa-chevron-down"></i>
                             </div>
-                            <div x-show="collapse_faq" class="text-xs p-3 bg-gray-100 w-full h-auto rounded-b-xl"
+                            <div x-show="collapse_qa" class="text-xs p-3 bg-gray-100 w-full h-auto rounded-b-xl"
                                 x-collapse.duration.200ms>
                                 Hmmm ... i am kinda not yet familiar with github contribution case, but maybe yes, and
                                 maybe very
